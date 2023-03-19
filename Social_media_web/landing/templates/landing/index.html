@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--for fonts-->
+    <script src="https://kit.fontawesome.com/1d71f92e0a.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success">
+      <strong>{{message}}</strong>
+    </div>
+ {% endfor %}
+{% endif %}
+<div id="welcome" class="carousel slide" data-ride="carousel">
+    {% load static %}
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="https://source.unsplash.com/1600x600/?friends" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+            <div class="alert alert-dark" role="alert">
+                <h5>Connect With Your Loved Ones</h5>
+                <p>Follow people who interest you, stay up to date on the latest news</p>
+                <a href="{% url 'account_login' %}" class="btn btn-light mr-2 btn-lg">Log In</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-dark btn-lg">Register</a>
+            <a href="about/" class="btn btn-light mr-2 btn-lg">About Us</a>
+            </div>
+          </div>   
+      </div>
+    </div>
+  </div>
+{% endblock content %}
